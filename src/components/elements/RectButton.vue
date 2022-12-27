@@ -1,6 +1,6 @@
 <template>
   <div class="btn-main" >
-    <font-awesome-icon :icon="icon" />
+    <font-awesome-icon class="btn-icon" :icon="icon" />
     <h2 class="btn-title">{{title}}</h2>
   </div>
 </template>
@@ -26,6 +26,12 @@
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
     }
+    .btn-main:hover{
+        filter: brightness(1.1);
+    }
+    .btn-main:active{
+        filter: brightness(1);
+    }
 
     .btn-main .btn-icon{
         /* Auto layout */
@@ -36,7 +42,7 @@
         order: 0;
         align-self: stretch;
         flex-grow: 0;
-        
+        height: 100px;
     }
 
     .btn-main .btn-title{

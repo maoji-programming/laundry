@@ -33,7 +33,8 @@
     }
     .main-window-header {
         display: block;
-        padding: 0px 15px;
+        margin: 0px;
+        padding: 5px 15px;
         text-align: left;
         color: #fff;
         background-color: #22aaee;
@@ -43,6 +44,8 @@
 
     .main-window-body{
         display: block;
+        color: #000;
+        background: #fff;
         height: v-bind(height);
         width: v-bind(width);
        
@@ -50,6 +53,7 @@
 
     .main-window-bottom{
         display: block;
+        background: #fff;
         height: 10px;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
