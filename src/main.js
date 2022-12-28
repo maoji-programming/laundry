@@ -22,7 +22,6 @@ library.add(faUserSecret)
 import './assets/main.css'
 import RectWindow from './components/elements/RectWindow.vue'
 import RectButton from './components/elements/RectButton.vue'
-import TableRecord from './components/elements/TableRecord.vue'
 
 customElements.define("lms-window",defineCustomElement(RectWindow))
 customElements.define("lms-button",defineCustomElement(RectButton))

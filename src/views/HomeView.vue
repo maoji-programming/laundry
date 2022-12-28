@@ -7,8 +7,7 @@ import TheWelcome from '../components/TheWelcome.vue'
 <template>
   <main>
     
-    
-    <RectButton icon="fa-solid fa-coffee" background="#23adef" title="Test-b"></RectButton>
+    <RectButton icon="fa-solid fa-coffee" background="#23adef" title="Test-b" onclick="alert('sss')"></RectButton>
   
   </main>
 </template>

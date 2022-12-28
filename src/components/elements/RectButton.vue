@@ -1,8 +1,12 @@
 <template>
-  <div class="btn-main" >
-    <font-awesome-icon class="btn-icon" :icon="icon" />
+  <!-- <div class="btn-main" >
+    <font-awesome-icon class="btn-icon" :icon="icon" color="white"/>
     <h2 class="btn-title">{{title}}</h2>
-  </div>
+  </div> -->
+    <button type="button" class="btn btn-primary btn-main btn-square-xl">
+        <font-awesome-icon class="btn-icon" :icon="icon" color="white"/>
+        <h2 class="btn-title">{{title}}</h2>
+    </button>
 </template>
 
 <script>
@@ -14,23 +18,20 @@
 </script>
 
 <style scoped>
+    .btn-square-xl {
+        width: -webkit-fill-available;
+        max-width: 100% ;
+        max-height: 100% ;
+        aspect-ratio: 1 / 1;
+        text-align: center;
+        padding: 0px;
+        font-size:24px;
+    }
     .btn-main{
         /* Auto layout */
         background-color: v-bind(background);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-        gap: 10px;
-
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
-    }
-    .btn-main:hover{
-        filter: brightness(1.1);
-    }
-    .btn-main:active{
-        filter: brightness(1);
     }
 
     .btn-main .btn-icon{
