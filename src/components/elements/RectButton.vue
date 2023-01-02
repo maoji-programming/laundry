@@ -4,7 +4,7 @@
     <h2 class="btn-title">{{title}}</h2>
   </div> -->
     <button type="button" class="btn btn-primary btn-main btn-square-xl">
-        <font-awesome-icon class="btn-icon" :icon="icon" color="white"/>
+        <slot name="icon"></slot>
         <h2 class="btn-title">{{title}}</h2>
     </button>
 </template>
@@ -32,6 +32,7 @@
         background-color: v-bind(background);
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
+        margin-bottom: 10px;
     }
 
     .btn-main .btn-icon{
