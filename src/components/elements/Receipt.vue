@@ -1,18 +1,22 @@
 <template>
-    <div class="d-flex my-2">
-        <div >
-            <slot name="icon"></slot>
+    <div class="receipt-item d-flex p-2">
+        <div class="icon mx-2">
+            <IconError v-if="pendingItem.status == 'E'"></IconError>
+            <IconFinished  v-if="pendingItem.status == 'F'"></IconFinished>
+            <IconPending v-if="pendingItem.status == 'P'"></IconPending>
+            <IconReceived v-if="pendingItem.status == 'R'"></IconReceived>
+            <IconWashing v-if="pendingItem.status == 'W'"></IconWashing>
         </div>
         <div>
             <div class="main-tag num">
-                <span class="tag-name"><b>Number</b></span>
-                <div class="tag-content">{{ pendingItem.pendingNumber }}</div>
+                <span class="tag-name px-1"><b>Number </b></span>
+                <div class="tag-content">{{ isUndefined(pendingItem)  ? "---": pendingItem.pendingNumber }}</div>
             </div>
         </div>
         <div class="ms-auto">
             <div class="main-tag order-time">
-                <span class="tag-name"><b>Start Time</b></span>
-                <div class="tag-content">{{ pendingItem.orderTime }}</div>
+                <span class="tag-name px-1"><b>Start Time </b></span>
+                <div class="tag-content">{{ isUndefined(pendingItem) ? "####-##-## --:--:--": pendingItem.orderTime }}</div>
             </div>
         </div>
         <div>
@@ -20,17 +24,26 @@
         </div>
     </div>
 
+
 </template>
 
 <script>
     import {defineComponent, reactive, ref} from "vue";
+    import * as utility from "../../assets/js/utility.js";
     
     export default defineComponent({
-        props: ['pendingItem']
+        props: ['pendingItem'],
+        methods:{
+            isUndefined : (obj) => utility.isUndefined(obj)
+        }
     })
 </script>
 
 <style scoped>
+    .receipt-item{
+        border-bottom: 1px solid #e7e7e7;
+    }
+
     .main-tag {
         border: 2px solid #22aaee;
         
@@ -57,5 +70,10 @@
 
     .tag-content {
         text-align: center;
+    }
+
+    .icon > svg {
+        width: 24px;
+        align-items: center;
     }
 </style>

@@ -22,11 +22,34 @@ library.add(faUserSecret)
 import './assets/main.css'
 import RectWindow from './components/elements/RectWindow.vue'
 import RectButton from './components/elements/RectButton.vue'
+import Receipt from './components/elements/Receipt.vue'
 
-customElements.define("lms-window",defineCustomElement(RectWindow))
-customElements.define("lms-button",defineCustomElement(RectButton))
+import IconError from "./components/icons/status/IconError.vue";
+import IconFinished from "./components/icons/status/IconFinished.vue";
+import IconPending from "./components/icons/status/IconFinished.vue";
+import IconReceived from "./components/icons/status/IconReceived.vue";
+import IconWashing from "./components/icons/status/IconWashing.vue";
+
 const app = createApp(App)
 
 app.use(router)
+
+
+// const StatusIconComponentContext = import.meta.glob('./components/icons/status/*.vue')
+// console.log(StatusIconComponentContext)
+// Object.keys(StatusIconComponentContext).forEach((componentFilePath) => {
+//     const componentName = componentFilePath.split('/').pop().split('.')[0];
+//     console.log(componentName)
+//     app.component(componentName, StatusIconComponentContext[componentFilePath]);
+// })
+
+app.component('IconError',IconError)
+app.component('IconFinished',IconFinished)
+app.component('IconPending',IconPending)
+app.component('IconReceived',IconReceived)
+app.component('IconWashing',IconWashing)
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.component('rect-window', RectWindow)
+app.component('rect-button',RectButton)
+app.component('receipt',Receipt)
 app.mount('#app')

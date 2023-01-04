@@ -46,40 +46,42 @@
             <div class="col-8">
                 <div class="row my-2">
                     <div class="col-6">
-                        <RectWindow title="Profit"></RectWindow>
+                        <rect-window title="Profit"></rect-window>
                     </div>
                     <div class="col-6">
-                        <RectWindow title="Number"></RectWindow>
+                        <rect-window title="Number"></rect-window>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-12">
-                        <RectWindow title="Receipt List" height="400px">
-                            <Receipt :pendingItem="receipts[0]"></Receipt>
-                        </RectWindow>
+                        <rect-window title="Receipt List" height="400px">
+                            <receipt :pendingItem="receipts[0]"></receipt>
+                            <receipt :pendingItem="receipts[1]"></receipt>
+                            <receipt :pendingItem="receipts[2]"></receipt>
+                        </rect-window >
                     </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="row my-2">
                     <div class="col-12">
-                        <RectWindow title="Statistics"></RectWindow>
+                        <rect-window  title="Statistics"></rect-window >
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <RectButton title="Add" background="#22aaee"></RectButton>
+                        <rect-button title="Add" background="#22aaee"></rect-button>
                     </div>
                     <div class="col-6">
-                        <RectButton title="Search" background="#22aaee"></RectButton>
+                        <rect-button title="Search" background="#22aaee"></rect-button>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <RectButton title="Data" background="#22aaee"></RectButton>
+                        <rect-button title="Data" background="#22aaee"></rect-button>
                     </div>
                     <div class="col-6">
-                        <RectButton title="Setting" background="#22aaee"></RectButton>
+                        <rect-button title="Setting" background="#22aaee"></rect-button>
                     </div>
                 </div>
             </div>
@@ -87,18 +89,41 @@
     </div>
 </template>
 
-<script setup>
-    import Receipt from '../components/elements/Receipt.vue';
-    import RectButton from '../components/elements/RectButton.vue';
-    import RectWindow from '../components/elements/RectWindow.vue';
+<script>
+    import {defineComponent, reactive, ref} from "vue";
+   
     
-    
-                receipts: [
-                    {
-                        pendingNumber: 'A0001',
-                        orderTime: '2022-10-02 22:10:01'
-                    }
-                ]
+    export default{
+        setup() {
+            const receipts = [{
+                    status: 'W', // E / P -> W -> F -> R
+                    pendingNumber: 'A0001',
+                    orderTime: '2022-10-02 22:10:01'
+                },{
+                    status: 'P', 
+                    pendingNumber: 'A0002',
+                    orderTime: '2022-10-02 22:10:04'
+                },{
+                    status: 'E', 
+                    pendingNumber: 'A0003',
+                    orderTime: '2022-10-02 22:10:07'
+                }
+            
+            ]
+
+            return {
+                receipts
+            }
+        }
+
+
+
+
+
+    }
+                
+           
+   
             
     
 
