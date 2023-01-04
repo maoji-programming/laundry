@@ -30,6 +30,8 @@ import IconPending from "./components/icons/status/IconFinished.vue";
 import IconReceived from "./components/icons/status/IconReceived.vue";
 import IconWashing from "./components/icons/status/IconWashing.vue";
 
+import IconMore from "./components/icons/IconMore.vue";
+
 const app = createApp(App)
 
 app.use(router)
@@ -48,6 +50,9 @@ app.component('IconFinished',IconFinished)
 app.component('IconPending',IconPending)
 app.component('IconReceived',IconReceived)
 app.component('IconWashing',IconWashing)
+app.component('IconMore',IconMore)
+
+
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('rect-window', RectWindow)
 app.component('rect-button',RectButton)

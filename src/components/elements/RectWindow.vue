@@ -48,6 +48,7 @@
         background: #fff;
         height: v-bind(height);
         width: v-bind(width);
+        overflow-y: scroll;
        
     }
 

@@ -19,8 +19,14 @@
                 <div class="tag-content">{{ isUndefined(pendingItem) ? "####-##-## --:--:--": pendingItem.orderTime }}</div>
             </div>
         </div>
-        <div>
+        <div class="icon dropend mx-2">
             <!-- more -->
+            <IconMore role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"/>
+            
+            <ul class="dropdown-menu p-2">
+                <li>go to next</li>
+                <li>view detail</li>
+            </ul>
         </div>
     </div>
 
@@ -30,6 +36,7 @@
 <script>
     import {defineComponent, reactive, ref} from "vue";
     import * as utility from "../../assets/js/utility.js";
+    
     
     export default defineComponent({
         props: ['pendingItem'],
@@ -66,6 +73,7 @@
         color: #22aaee;
         background: #ffffff;
         font-size: 8px;
+        user-select: none;
     }
 
     .tag-content {
