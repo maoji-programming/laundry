@@ -2,7 +2,9 @@
     <div class="main-window">
         <h2 class="main-window-header">{{title}}</h2>
         <div class="main-window-body">
-            <slot />
+            <perfect-scrollbar>
+                <slot />
+            </perfect-scrollbar>
         </div>
         <div class="main-window-bottom"></div>
     </div>
@@ -48,7 +50,6 @@
         background: #fff;
         height: v-bind(height);
         width: v-bind(width);
-        overflow-y: scroll;
        
     }
 
@@ -60,4 +61,7 @@
         border-bottom-left-radius: 10px;
     }
     
+    .ps{
+        height: v-bind(height);
+    }
 </style>

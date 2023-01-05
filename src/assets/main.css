@@ -6,6 +6,9 @@
   padding: 2rem;
 
   font-weight: normal;
+  background-image: url("./laundry-background.png");
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 a,

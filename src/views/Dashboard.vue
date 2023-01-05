@@ -54,8 +54,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-12">
-                        <rect-window title="Receipt List" height="400px">
-                            <receipt v-for="(receipt,i) in receipts" :key="i" :pendingItem="receipts[i]"></receipt>
+                        <rect-window id="laundry_dashboard_receipt_list" title="Receipt List" height="400px">
+                            <receipt :id="'laundry_dashboard_receipt_'+i" v-for="(receipt,i) in receipts" :key="i" :pendingItem="receipts[i]"></receipt>
                         </rect-window >
                     </div>
                 </div>
@@ -63,114 +63,78 @@
             <div class="col-12 col-lg-4">
                 <div class="row my-2">
                     <div class="col-12">
-                        <rect-window  title="Statistics"></rect-window >
+                        <rect-window  title="Statistics">
+                            
+                        </rect-window >
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <rect-button title="Add" background="#22aaee"></rect-button>
+                        <rect-button id="laundry_dashboard_btn_add_records" title="Add" background="#22aaee" data-toggle="modal" data-target="#addRecordModal">
+                            <template #icon><IconAdd/></template>
+                        </rect-button>
                     </div>
                     <div class="col-6">
-                        <rect-button title="Search" background="#22aaee"></rect-button>
+                        <rect-button id="laundry_dashboard_btn_search" @click="" title="Search" background="#22aaee">
+                            <template #icon><IconSearch/></template>
+                        </rect-button>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <router-link to="/backend"><rect-button title="Data" background="#22aaee"></rect-button></router-link>
+                        <rect-button id="laundry_dashboard_btn_database" @click="$router.push('/backend')" title="Data" background="#22aaee">
+                            <template #icon><IconDatabase/></template>
+                        </rect-button>
                     </div>
                     <div class="col-6">
-                        <rect-button title="Setting" background="#22aaee"><template #icon><IconTooling></IconTooling></template></rect-button>
+                        <rect-button id="laundry_dashboard_btn_setting" @click="" title="Setting" background="#22aaee">
+                            <template #icon><IconSetting/></template>
+                        </rect-button>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="AddRecordModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <add-records />
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
     import {defineComponent, reactive, ref} from "vue";
-    import IconTooling from "../components/icons/IconTooling.vue"
-    
-    export default{
-        setup() {
-            const receipts = [{
-                    receiptId: "12013",
-                    status: 'W', // E / P -> W -> F -> R
-                    pendingNumber: 'A0001',
-                    orderTime: '2022-10-02 22:10:01'
-                },{
-                    receiptId: "12044",
-                    status: 'P', 
-                    pendingNumber: 'A0002',
-                    orderTime: '2022-10-02 22:10:04'
-                },{
-                    receiptId: "12080",
-                    status: 'E', 
-                    pendingNumber: 'A0003',
-                    orderTime: '2022-10-02 22:10:07'
-                },{
-                    receiptId: "12013",
-                    status: 'W', // E / P -> W -> F -> R
-                    pendingNumber: 'A0001',
-                    orderTime: '2022-10-02 22:10:01'
-                },{
-                    receiptId: "12044",
-                    status: 'P', 
-                    pendingNumber: 'A0002',
-                    orderTime: '2022-10-02 22:10:04'
-                },{
-                    receiptId: "12080",
-                    status: 'E', 
-                    pendingNumber: 'A0003',
-                    orderTime: '2022-10-02 22:10:07'
-                },{
-                    receiptId: "12013",
-                    status: 'W', // E / P -> W -> F -> R
-                    pendingNumber: 'A0001',
-                    orderTime: '2022-10-02 22:10:01'
-                },{
-                    receiptId: "12044",
-                    status: 'P', 
-                    pendingNumber: 'A0002',
-                    orderTime: '2022-10-02 22:10:04'
-                },{
-                    receiptId: "12080",
-                    status: 'E', 
-                    pendingNumber: 'A0003',
-                    orderTime: '2022-10-02 22:10:07'
-                },{
-                    receiptId: "12013",
-                    status: 'W', // E / P -> W -> F -> R
-                    pendingNumber: 'A0001',
-                    orderTime: '2022-10-02 22:10:01'
-                },{
-                    receiptId: "12044",
-                    status: 'P', 
-                    pendingNumber: 'A0002',
-                    orderTime: '2022-10-02 22:10:04'
-                },{
-                    receiptId: "12080",
-                    status: 'E', 
-                    pendingNumber: 'A0003',
-                    orderTime: '2022-10-02 22:10:07'
-                }
-            
-            ]
 
-            return {
-                receipts
-            }
+        
+    const receipts = [{
+            receiptId: "12013",
+            status: 'W', // E / P -> W -> F -> R
+            pendingNumber: 'A0001',
+            orderTime: '2022-10-02 22:10:01'
+        },{
+            receiptId: "12044",
+            status: 'P', 
+            pendingNumber: 'A0002',
+            orderTime: '2022-10-02 22:10:04'
+        },{
+            receiptId: "12080",
+            status: 'E', 
+            pendingNumber: 'A0003',
+            orderTime: '2022-10-02 22:10:07'
+        },{
+            receiptId: "12112",
+            status: 'F', 
+            pendingNumber: 'A0005',
+            orderTime: '2022-10-02 22:20:11'
+        },{
+            receiptId: "12140",
+            status: 'R', 
+            pendingNumber: 'A0008',
+            orderTime: '2022-10-02 22:33:21'
         }
+    ]
 
-
-
-
-
-    }
-                
-           
-   
-            
-    
 
 </script>

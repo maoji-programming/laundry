@@ -4,7 +4,9 @@
     <h2 class="btn-title">{{title}}</h2>
   </div> -->
     <button type="button" class="btn btn-primary btn-main btn-square-xl">
-        <slot name="icon"></slot>
+        <div class="btn-icon">
+            <slot name="icon"></slot>
+        </div>
         <h2 class="btn-title">{{title}}</h2>
     </button>
 </template>
@@ -34,6 +36,7 @@
         border-radius: 10px;
         margin-bottom: 10px;
     }
+    
 
     .btn-main .btn-icon{
         /* Auto layout */
@@ -44,7 +47,7 @@
         order: 0;
         align-self: stretch;
         flex-grow: 0;
-        height: 100px;
+        width: 64px;
     }
 
     .btn-main .btn-title{

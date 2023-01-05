@@ -22,7 +22,6 @@
         <div class="icon dropend mx-2">
             <!-- more -->
             <IconMore role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"/>
-            
             <ul class="dropdown-menu p-2">
                 <li>go to next</li>
                 <li>view detail</li>
