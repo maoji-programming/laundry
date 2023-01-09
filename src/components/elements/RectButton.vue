@@ -31,10 +31,17 @@
     }
     .btn-main{
         /* Auto layout */
-        background-color: v-bind(background);
+        background-color: v-bind(background) !important;
+        border-color: v-bind(background) !important;
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         margin-bottom: 10px;
+    }
+    .btn-main:hover{
+        filter: brightness(1.1)
+    }
+    .btn-main:active{
+        filter: brightness(1)
     }
     
 

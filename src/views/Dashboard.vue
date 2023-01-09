@@ -70,7 +70,7 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <rect-button id="laundry_dashboard_btn_add_records" title="Add" background="#22aaee" data-toggle="modal" data-target="#addRecordModal">
+                        <rect-button id="laundry_dashboard_btn_add_records" title="Add" background="#22aaee" data-bs-toggle="modal" data-bs-target="#AddRecordModal">
                             <template #icon><IconAdd/></template>
                         </rect-button>
                     </div>
@@ -94,13 +94,13 @@
                 </div>
             </div>
         </div>
-        <div id="AddRecordModal">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <add-records />
-                </div>
+        <div id="AddRecordModal" class="modal modal-lg fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                
+                <add-records />
             </div>
         </div>
+        
     </div>
 </template>
 
