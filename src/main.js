@@ -23,6 +23,7 @@ import RectButton from './components/elements/RectButton.vue';
 import Receipt from './components/elements/Receipt.vue';
 
 import AddRecords from './components/AddRecords.vue';
+import ReceiptAccordion from './components/elements/ReceiptAccordion.vue';
 
 import IconError from "./components/icons/status/IconError.vue";
 import IconFinished from "./components/icons/status/IconFinished.vue";
@@ -71,4 +72,6 @@ app.component('receipt',Receipt)
 
 app.component('add-records',AddRecords)
 
+app.component('receipt-accordion',ReceiptAccordion)
+//app.component('receipt-accordation-item',ReceiptAccordationItem)
 app.mount('#app')

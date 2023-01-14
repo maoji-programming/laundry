@@ -20,7 +20,7 @@
                         <div class="receipt-frame mb-2">
                             <div class="py-2">
                                 <!-- record -->
-                                
+                                <receipt-accordion :isAdding="true"/>
                             </div>
                         </div>
                     
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+
+
 
 
 </script>
