@@ -1,0 +1,39 @@
+{
+    "common":{
+        "lang":"English",
+        "confirm":"Confirm",
+        "cancel":"Cancel",
+        "save":"Save"
+    },
+    "home" : {
+        "receipt_list":{
+            
+            "number":"Number",
+            "start_time":"Start Time",
+            "receipt_info":{
+                "receipt_details":"Receipt Details",
+                "T":"Receipt Information"
+            },
+            "searching_results":"Search Results",
+            "T":"Receipt List"
+        },
+        "add":{
+
+            "T":"Add"
+        },
+        "data":{
+
+            "T":"Data"
+        },
+        "setting":{
+            "display":{
+                "language": "Language",
+                "T":"Display"
+            },
+            
+            "T":"Setting"
+        },
+        "T" : "Home"
+    }
+
+}

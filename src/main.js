@@ -4,7 +4,7 @@ import { createApp,defineCustomElement } from 'vue'
 import fs from 'fs'
 import App from './App.vue'
 import router from './router'
-
+import i18n from './i18n'
 //bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
@@ -39,6 +39,8 @@ import IconSetting from "./components/icons/IconSetting.vue";
 const app = createApp(App)
 
 app.use(router)
+app.use(i18n)
+ 
 app.use(PerfectScrollbar)
 
 

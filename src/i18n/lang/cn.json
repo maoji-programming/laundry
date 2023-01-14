@@ -1,0 +1,38 @@
+{
+    "common":{
+        "language":"中文",
+        "confirm":"確定",
+        "cancel":"取消",
+        "save":"儲存"
+    },
+    "home" : {
+        "receipt_list":{
+            
+            "number":"發單號碼",
+            "start_time":"發單時間",
+            "receipt_info":{
+                "receipt_details":"發單詳情",
+                "T":"發單資料"
+            },
+            "searching_results":"搜尋結果",
+            "T":"發單記錄"
+        },
+        "add":{
+
+            "T":"創建交易"
+        },
+        "data":{
+
+            "T":"後台數據"
+        },
+        "setting":{
+            "display":{
+                "language": "語言",
+                "T":"畫面"
+            },
+            "T":"系統設定"
+        },
+        "T" : "主頁"
+    }
+
+}
