@@ -11,12 +11,9 @@
     </button>
 </template>
 
-<script>
-    import {defineComponent, reactive, ref} from "vue";
-    
-    export default defineComponent({
-        props: ['background','icon','title']
-    })
+<script setup>
+    import {reactive, ref} from "vue";
+    defineProps(['background','icon','title'])
 </script>
 
 <style scoped>

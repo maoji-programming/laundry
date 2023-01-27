@@ -5,6 +5,8 @@ import fs from 'fs'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
+import store from './store'
+
 //bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
@@ -31,6 +33,13 @@ import IconPending from "./components/icons/status/IconPending.vue";
 import IconReceived from "./components/icons/status/IconReceived.vue";
 import IconWashing from "./components/icons/status/IconWashing.vue";
 
+import IconBleach from "./components/icons/service/IconBleach.vue";
+import IconDry from "./components/icons/service/IconDry.vue";
+import IconDryClean from "./components/icons/service/IconDryClean.vue";
+import IconIroning from "./components/icons/service/IconIroning.vue";
+import IconMachineWash from "./components/icons/service/IconMachineWash.vue";
+import IconTumbleDry from "./components/icons/service/IconTumbleDry.vue"
+
 import IconMore from "./components/icons/IconMore.vue";
 import IconAdd from "./components/icons/IconAdd.vue";
 import IconSearch from "./components/icons/IconSearch.vue";
@@ -41,6 +50,7 @@ const app = createApp(App)
 
 app.use(router)
 app.use(i18n)
+app.use(store)
  
 app.use(PerfectScrollbar)
 
@@ -60,6 +70,13 @@ app.component('IconPending',IconPending)
 app.component('IconReceived',IconReceived)
 app.component('IconWashing',IconWashing)
 app.component('IconMore',IconMore)
+
+app.component('IconBleach',IconBleach)
+app.component('IconDry',IconDry)
+app.component('IconDryClean',IconDryClean)
+app.component('IconIroning',IconIroning)
+app.component('IconMachineWash',IconMachineWash)
+app.component('IconTumbleDry',IconTumbleDry)
 
 app.component('IconAdd',IconAdd)
 app.component('IconSearch',IconSearch)

@@ -33,7 +33,24 @@
             
             "T":"Setting"
         },
+        "search":{
+
+            "T" :"Search"
+        },
         "T" : "Home"
+    },
+    "data":{
+        "receipt":{
+            "service":{
+                "bleach":"Bleach",
+                "dryClean":"Dry Clean",
+                "machineWash":"Machine Wash",
+                "tumbleDry":"Tumble Dry",
+                "T":"Service"
+            },
+            "T":"Receipt"
+        },
+        "T":"Data"
     }
 
 }

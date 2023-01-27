@@ -8,7 +8,7 @@
                         <div class="input-frame">
                             <div class="mb-3">
                                 <label for="customerName" class="form-label">Customer Name</label>
-                                <input type="text" class="form-control" id="customerName" >
+                                <input type="text" class="form-control" id="customerName" v-model="name">
                             </div>
                             <div class="mb-3">
                                 <label for="customerPhone" class="form-label">Customer Phone</label>
@@ -20,7 +20,9 @@
                         <div class="receipt-frame mb-2">
                             <div class="py-2">
                                 <!-- record -->
-                                <receipt-accordion :isAdding="true"/>
+                                <perfect-scrollbar >
+                                    <receipt-accordion class="me-3" :isAdding="true"/>
+                                </perfect-scrollbar>
                             </div>
                         </div>
                     
@@ -29,11 +31,23 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
+                        <div class="d-flex px-4">
+                            <div>Service Fee</div>
+                            <div class="ms-auto pe-4">$ 15</div>
+                        </div>
+                        <div class="d-flex px-4">
+                            <div><b>Total</b></div>
+                            <div class="ms-auto pe-4"><b>$ 2500</b></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
                         <div class="d-grid align-items-end">
                             <button type="button" class="btn btn-primary btn-main">
                                 Enter
                             </button>
-                            <button type="button" class="btn btn-secondary btn-support">
+                            <button type="button" class="btn btn-secondary btn-support" data-bs-dismiss="modal">
                                 Cancel
                             </button>
                         </div>
@@ -45,9 +59,29 @@
 </template>
 
 <script>
+    import {defineComponent, onMounted, reactive, ref} from "vue";
+    
 
 
+    export default defineComponent({
+        setup(props){
+            var name ="";
+            var phone= "";
+            
+            
+            
+            return{
+                name, phone
+            }
+        },
+        onMounted(){
+            console.log("start dialog")
+            name = "";
+            phone = "";
+        }
 
+
+    })
 
 </script>
 
@@ -62,6 +96,7 @@
         border: 2px solid #22aaee;
         border-radius: 10px;
         flex: 1 1 auto;
+
     }
     .input-frame{
         flex: 0 1 auto;
@@ -99,5 +134,8 @@
     }
     .modal-content{
         border-radius: 0px;
+    }
+    .ps{
+        height: 334px;
     }
 </style>

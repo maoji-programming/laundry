@@ -9,13 +9,13 @@
         </div>
         <div>
             <div class="main-tag num">
-                <span class="tag-name px-1"><b>Number </b></span>
+                <span class="tag-name px-1"><b>{{ $t('home.receipt_list.number') }} </b></span>
                 <div class="tag-content">{{ isUndefined(pendingItem)  ? "---": pendingItem.pendingNumber }}</div>
             </div>
         </div>
         <div class="ms-auto">
             <div class="main-tag order-time">
-                <span class="tag-name px-1"><b>Start Time </b></span>
+                <span class="tag-name px-1"><b>{{ $t('home.receipt_list.start_time') }}</b></span>
                 <div class="tag-content">{{ isUndefined(pendingItem) ? "####-##-## --:--:--": pendingItem.orderTime }}</div>
             </div>
         </div>

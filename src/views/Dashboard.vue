@@ -54,7 +54,7 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-12">
-                        <rect-window id="laundry_dashboard_receipt_list" title="Receipt List" height="400px">
+                        <rect-window id="laundry_dashboard_receipt_list" :title="$t('home.receipt_list.T')" height="400px">
                             <receipt :id="'laundry_dashboard_receipt_'+i" v-for="(receipt,i) in receipts" :key="i" :pendingItem="receipts[i]"></receipt>
                         </rect-window >
                     </div>
@@ -70,33 +70,32 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <rect-button id="laundry_dashboard_btn_add_records" title="Add" background="#22aaee" data-bs-toggle="modal" data-bs-target="#AddRecordModal">
+                        <rect-button id="laundry_dashboard_btn_add_records" :title="$t('home.add.T')" background="#22aaee" data-bs-toggle="modal" data-bs-target="#AddRecordModal" >
                             <template #icon><IconAdd/></template>
                         </rect-button>
                     </div>
                     <div class="col-6">
-                        <rect-button id="laundry_dashboard_btn_search" @click="" title="Search" background="#22aaee">
+                        <rect-button id="laundry_dashboard_btn_search" :title="$t('home.search.T')" background="#22aaee">
                             <template #icon><IconSearch/></template>
                         </rect-button>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-6">
-                        <rect-button id="laundry_dashboard_btn_database" @click="$router.push('/backend')" title="Data" background="#22aaee">
+                        <rect-button id="laundry_dashboard_btn_database" @click="$router.push('/backend')" :title="$t('home.data.T')" background="#22aaee">
                             <template #icon><IconDatabase/></template>
                         </rect-button>
                     </div>
                     <div class="col-6">
-                        <rect-button id="laundry_dashboard_btn_setting" @click="" title="Setting" background="#22aaee">
+                        <rect-button id="laundry_dashboard_btn_setting" @click="$router.push('/setting')" :title="$t('home.setting.T')" background="#22aaee">
                             <template #icon><IconSetting/></template>
                         </rect-button>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="AddRecordModal" class="modal modal-lg fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div id="AddRecordModal" class="modal modal-lg fade" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                
                 <add-records />
             </div>
         </div>
@@ -106,8 +105,6 @@
 
 <script setup>
     import {defineComponent, reactive, ref} from "vue";
-
-        
     const receipts = [{
             receiptId: "12013",
             status: 'W', // E / P -> W -> F -> R
@@ -135,6 +132,6 @@
             orderTime: '2022-10-02 22:33:21'
         }
     ]
-
+    
 
 </script>

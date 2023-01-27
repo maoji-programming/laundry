@@ -15,15 +15,7 @@
         </table>
     </div>
 </template>
-<script>
-    import {defineComponent, reactive, ref} from "vue";
-
-    export default defineComponent({
-        props:[
-            "headers",
-            "height",
-            "title",
-        ]
-
-    })
+<script setup>
+    import {reactive, ref} from "vue";
+    defineProps(["headers","height","title"])
 </script>

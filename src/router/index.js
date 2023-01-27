@@ -24,6 +24,10 @@ const router = createRouter({
       path: '/backend',
       name: 'backend',
       component: () => import('../views/Backend.vue')
+    },{
+      path: '/setting',
+      name: 'setting',
+      component: () => import('../views/Setting.vue')
     }
   ]
 })

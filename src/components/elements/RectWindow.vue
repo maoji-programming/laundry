@@ -9,17 +9,10 @@
         <div class="main-window-bottom"></div>
     </div>
 </template>
-<script>
-    import {defineComponent, reactive, ref} from "vue";
+<script setup>
+    import {reactive, ref} from "vue";
 
-    export default defineComponent({
-        props:[
-            "width",
-            "height",
-            "title",
-        ]
-
-    })
+    defineProps(["width", "height","title"])
 </script>
 <style>
     .main-window {
