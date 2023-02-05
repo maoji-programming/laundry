@@ -1,11 +1,10 @@
 import { createApp,defineCustomElement } from 'vue'
-
+import { createPinia } from 'pinia'
 
 import fs from 'fs'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
-import store from './store'
 
 //bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -46,11 +45,13 @@ import IconSearch from "./components/icons/IconSearch.vue";
 import IconDatabase from "./components/icons/IconDatabase.vue";
 import IconSetting from "./components/icons/IconSetting.vue";
 
+const pinia = createPinia()
 const app = createApp(App)
+
 
 app.use(router)
 app.use(i18n)
-app.use(store)
+app.use(pinia)
  
 app.use(PerfectScrollbar)
 

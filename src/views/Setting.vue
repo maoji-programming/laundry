@@ -20,10 +20,10 @@
 </template>
 <script setup>
     import { useI18n } from 'vue-i18n'
-    import { useStore } from "vuex";
+    import { useLangStore } from "@/store/lang";
    
         
-    const store = useStore();
+    const store = useLangStore();
     const { locale } = useI18n();
     const section = 'display';
     const langMap = {
@@ -33,11 +33,8 @@
     const handleChangeLanguage = (lang) => {
         console.log(lang)
         locale.value = lang;
-        store.commit("setI18nLang", lang);
-    };
-    return {
-        section, handleChangeLanguage, langMap
-    }
+        store.setI18nLang(lang);
         
+    }
     
 </script>

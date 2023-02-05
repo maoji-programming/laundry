@@ -1,22 +1,22 @@
 <template>
-    <rect-window title="Add Records">
+    <rect-window :title="$t('home.add.T')">
         <div class="modal-content">
             <div class="container">
                 <div class="row">
                     <div class="col-12 add-records-frame" >
-                        <h3>Customer Infomration</h3>
+                        <h3>{{$t('home.add.customer_information.T')}}</h3>
                         <div class="input-frame">
                             <div class="mb-3">
-                                <label for="customerName" class="form-label">Customer Name</label>
+                                <label for="customerName" class="form-label">{{$t('home.add.customer_information.customer_name')}}</label>
                                 <input type="text" class="form-control" id="customerName" v-model="name">
                             </div>
                             <div class="mb-3">
-                                <label for="customerPhone" class="form-label">Customer Phone</label>
+                                <label for="customerPhone" class="form-label">{{$t('home.add.customer_information.customer_phone')}}</label>
                                 <input type="text" class="form-control" id="customerPhone" aria-describedby="phoneHelp">
-                                <div id="phoneHelp" class="form-text">*acquired</div>
+                                <div id="phoneHelp" class="form-text">*{{$t('home.add.customer_information.acquired')}}</div>
                             </div>
                         </div>
-                        <h3>Receipt</h3>
+                        <h3>{{$t('home.add.receipt_information.T')}}</h3>
                         <div class="receipt-frame mb-2">
                             <div class="py-2">
                                 <!-- record -->
@@ -32,11 +32,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex px-4">
-                            <div>Service Fee</div>
+                            <div>{{$t('home.add.service_fee')}}</div>
                             <div class="ms-auto pe-4">$ 15</div>
                         </div>
                         <div class="d-flex px-4">
-                            <div><b>Total</b></div>
+                            <div><b>{{$t('home.add.total')}}</b></div>
                             <div class="ms-auto pe-4"><b>$ 2500</b></div>
                         </div>
                     </div>
@@ -58,30 +58,41 @@
     </rect-window>
 </template>
 
-<script>
-    import {defineComponent, onMounted, reactive, ref} from "vue";
+<script setup>
+    import {computed, onMounted, reactive, ref} from "vue";
+    
+    var name ="";
+    var phone= "";
+    const records = reactive([]) 
+    const serviceFee = computed({
+        get(){
+            return records.reduce((a, b) => {
+                return a + b;
+            })
+        },
+        set(n_serviceFee){
+            serviceFee = n_serviceFee
+        }
+    })
+    const total = computed({
+        get(){
+            return records.reduce((a, b) => {
+                return a + b;
+            }) + serviceFee;
+        },
+
+        set(n_total){
+            total = n_total;
+        }
+    })
     
 
 
-    export default defineComponent({
-        setup(props){
-            var name ="";
-            var phone= "";
-            
-            
-            
-            return{
-                name, phone
-            }
-        },
-        onMounted(){
-            console.log("start dialog")
-            name = "";
-            phone = "";
-        }
 
 
-    })
+
+
+    
 
 </script>
 

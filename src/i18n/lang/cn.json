@@ -18,7 +18,18 @@
             "T":"發單記錄"
         },
         "add":{
+            "customer_information":{
+                "customer_name":"客戶姓名",
+                "customer_phone":"客戶電話",
+                "acquired":"必須",
+                "T":"客戶信息"
+            },
+            "receipt_information":{
 
+                "T":"交易信息"
+            },
+            "service_fee":"服務費用",
+            "total":"總費用",
             "T":"創建交易"
         },
         "data":{

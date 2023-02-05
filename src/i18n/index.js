@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
+import { useLangStore } from '../store/lang'
 
-import store from "@/store";
 import cn from './lang/cn.json'
 import en from './lang/en.json'
 
@@ -14,7 +14,7 @@ if (localStorage.getItem("i18nLang")) {
   localStorage.setItem("i18nLang", locale);
 }
 
-store.commit("setI18nLang", locale);
+// store.commit("setI18nLang", locale);
 
 const i18n = createI18n({
   legacy: false,

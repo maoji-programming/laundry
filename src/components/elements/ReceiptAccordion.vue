@@ -53,143 +53,109 @@
                     <input type="text" class="form-control" id="price" v-model="records[key].price" disabled>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-auto ms-auto">
+                    <button type="button" class="btn btn-primary btn-main" @click="deleteRecord(key)">
+                        Delete
+                    </button>
+                </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="accordion-item new-item">
-        <button class="d-flex accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="false"  data-toggle="tooltip" data-placement="top" >
+        <button class="d-flex accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="false"  data-toggle="tooltip" data-placement="top" @click="createRecord()">
             click here to create new item.
           </button>
       </div>
     </div>
-    <!--div class="accordion accordion-flush">
-        <div class="accordion-item" v-for="(record,key) in records" :key="key">
-            <div class="accordion-header solid-type" :id="'flush-item_header_'+key" >
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#flush-item_body_'+key" aria-expanded="true" :aria-controls="'flush-item_body_'+key">
-                {{ record.item_name }}
-                </button>
-            </div>
-            <div :id="'flush-item_body_'+key" class="accordion-collapse collapse" :aria-controls="'flush-item_header_'+key">
-            <div class="accordion-body">
-                {{ record }}
-            </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div class="receipt-item p-2 my-2">
-        <div class="accordion d-grid gap-2">
-            <div :class="'accordion-item '+ (active == key? 'accordion-item-active':'')" v-for="(record,key) in records" :key="key">
-                <div class="solid-type p-2"  @click="open(key)">
-                    {{ record.item_name }}
-                </div>
-                <transition name="accordion"
-                    @enter="start"
-                    @after-enter="end"
-                    @before-leave="start"
-                    @after-leave="end"
-                    >
-                    <div v-show="key == active" class="new_item_form">
-                        {{ record }}
-                    </div>
-                </transition>
-            </div>
-            <div v-if="isInsertable" class="accordion-item">
-                <div class="new-type" @click="create">
-
-                </div>
-                <div class="new_item_form">
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    -->
+   
 </template>
 
-<script>
+<script setup>
     import {defineComponent, reactive, ref} from "vue";
     import * as utility from "../../assets/js/utility.js";
     
-    //defineProps(['isInsertable','isEditable','items'])
-    export default defineComponent({
-        props:{
-            isInsertable: Boolean,
-            isEditable: Boolean,
-            items: Array
-        },
-        data(){
-            return{
-                active : ref(null),
-                isCreating : false,
-            }
-        },
-        methods:{
-            serviceTranslate(l){
-                    switch(l){
-                        case 'B':
-                            return 'Bleach';
-                        
-                        case 'DC':
-                            return 'Dry Clean';
+    defineProps(['isInsertable','isEditable','items'])
 
-                        case 'MW':
-                            return 'Machine Wash'
-                    }
-            },
-            open(key){
-                if (key == this.active) {
-                    this.active = null;
-                } else {
-                    this.active = key;
-                }
-                console.log("opening: " + this.active)
-            },
-            create(){
-                isCreating = true;
-            },
-            start(el) {
-                el.style.height = el.scrollHeight + "px";
-            },
-            end(el) {
-                el.style.height = "";
-            }
-        },
-        setup(props){
-            
-            
-            var records = [
-                {
-                    item_name: "coat",
-                    price: 20,
-                    service:  "DC",
-                    withIroning: false,
-                    withTumbleDry: false
-                },{
-                    item_name: "jeans",
-                    price: 12,
-                    service: "B",
-                    withIroning: false,
-                    withTumbleDry: false
-                },{
-                    item_name: "suit",
-                    price: 45,
-                    service: "MW",
-                    withIroning: true,
-                    withTumbleDry: true
-                }
-            ]
-            
-            return{
-                records
-            }
-            
+    const records = ref([
+        {
+            item_name: "coat",
+            price: 20,
+            service:  "DC",
+            withIroning: false,
+            withTumbleDry: false
+        },{
+            item_name: "jeans",
+            price: 12,
+            service: "B",
+            withIroning: false,
+            withTumbleDry: false
+        },{
+            item_name: "suit",
+            price: 45,
+            service: "MW",
+            withIroning: true,
+            withTumbleDry: true
         }
+    ]);
+    
+    const serviceTranslate = (l) =>{
+        switch(l){
+            case 'B':
+                return 'Bleach';
+            
+            case 'DC':
+                return 'Dry Clean';
+
+            case 'MW':
+                return 'Machine Wash'
+        }
+    }
+
+    const createRecord = () => {
+        records.value.push(
+            {
+                item_name: "",
+                price: 0,
+                service:  "",
+                withIroning: false,
+                withTumbleDry: false
+            }
+        )
+    }
+
+    const deleteRecord = (index) => {
+        records.value.splice(index, 1);
+    }
+
+    const validate = () => {
         
+        return true;
+    } 
+
+    const computeTotal = () => {
+        let sum = 0;
+        records.forEach(
+            (i) => {
+                sum += i
+            }
+        )
+        return sum;
+    }
+    const emit = defineEmits({
+        submit(payload) {
+            // return `true` or `false` to indicate
+            // validation pass / fail
+        },
+
+        retrieveRecords(){
+            emit("record",this.records)
+        }
     })
+        
+    
+    
 </script>
 
 <style lang="scss" scoped>
@@ -251,6 +217,15 @@
     .price{
         text-align: right;
         width: 200px
+    }
+
+    .btn-main{
+        /* Auto layout */
+        background-color: #22aaee !important;
+        border-color: #22aaee !important;
+        box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        margin-bottom: 10px;
     }
 /*
     .accordion {

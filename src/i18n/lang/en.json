@@ -18,7 +18,17 @@
             "T":"Receipt List"
         },
         "add":{
-
+            "customer_information":{
+                "customer_name":"Customer Name",
+                "customer_phone":"Customer Phone",
+                "acquired":"acquired",
+                "T":"Customer Infomration"
+            },
+            "receipt_information":{
+                "T":"Receipt Information"
+            },
+            "service_fee":"Service Fee",
+            "total":"Total Fee",
             "T":"Add"
         },
         "data":{

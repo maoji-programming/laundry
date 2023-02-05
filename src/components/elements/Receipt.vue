@@ -32,17 +32,16 @@
 
 </template>
 
-<script>
-    import {defineComponent, reactive, ref} from "vue";
+<script setup>
+    import {reactive, ref} from "vue";
     import * as utility from "../../assets/js/utility.js";
     
+    defineProps(['pendingItem'])
+
+    const isUndefined = function(obj){
+        return utility.isUndefined(obj)
+    }
     
-    export default defineComponent({
-        props: ['pendingItem'],
-        methods:{
-            isUndefined : (obj) => utility.isUndefined(obj)
-        }
-    })
 </script>
 
 <style scoped>
