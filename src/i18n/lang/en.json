@@ -56,6 +56,7 @@
                 "dryClean":"Dry Clean",
                 "machineWash":"Machine Wash",
                 "tumbleDry":"Tumble Dry",
+                "ironing":"Ironing",
                 "T":"Service"
             },
             "T":"Receipt"

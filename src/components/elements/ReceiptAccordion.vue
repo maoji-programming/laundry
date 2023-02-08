@@ -36,13 +36,13 @@
                 <div class="form-check">
                     <input class="form-check-input"  v-model="records[key].withIroning" type="checkbox"  :id="'withIroning_'+key">
                     <label class="form-check-label" :for="'withIroning_'+key">
-                        Ironing
+                        {{ $t('data.receipt.service.ironing') }}
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input"  v-model="records[key].withTumbleDry" type="checkbox" :id="'withTumbleDry_'+key">
                     <label class="form-check-label" :for="'withTumbleDry_'+key">
-                        Tumble Dry
+                        {{ $t('data.receipt.service.tumbleDry') }}
                     </label>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <label for="price" class="form-label">Service Price</label>
                 <div class="input-group">
                     <span class="input-group-text">$</span>
-                    <input type="text" class="form-control" id="price" v-model="records[key].price" disabled>
+                    <input type="number" class="form-control" id="price" v-model="records[key].price">
                 </div>
             </div>
             <div class="row">
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-      <div class="accordion-item new-item">
+      <div v-if="props.isInsertable" class="accordion-item new-item">
         <button class="d-flex accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="false"  data-toggle="tooltip" data-placement="top" @click="createRecord()">
             click here to create new item.
           </button>
@@ -76,7 +76,20 @@
     import {defineComponent, reactive, ref} from "vue";
     import * as utility from "../../assets/js/utility.js";
     
-    defineProps(['isInsertable','isEditable','items'])
+    const props = defineProps({
+        'isInsertable':{
+            type: Boolean,
+            default: false
+        },
+        'isEditable':{
+            type: Boolean,
+        },
+        'items':{
+            type: Array,
+            default: () => {[]}
+        }
+    })
+    const emit = defineEmits('retrieveRecords');
 
     const records = ref([
         {
@@ -127,6 +140,7 @@
 
     const deleteRecord = (index) => {
         records.value.splice(index, 1);
+        updateRecord()
     }
 
     const validate = () => {
@@ -134,25 +148,11 @@
         return true;
     } 
 
-    const computeTotal = () => {
-        let sum = 0;
-        records.forEach(
-            (i) => {
-                sum += i
-            }
-        )
-        return sum;
+    const initialize = () => {
+        emit('retrieveRecords',records.value)
     }
-    const emit = defineEmits({
-        submit(payload) {
-            // return `true` or `false` to indicate
-            // validation pass / fail
-        },
-
-        retrieveRecords(){
-            emit("record",this.records)
-        }
-    })
+    
+    initialize()
         
     
     
@@ -200,6 +200,7 @@
         transition: none !important;
         margin: 0%;
     }
+
     .accordion-button.collapsed::after {
         background: none;
     }

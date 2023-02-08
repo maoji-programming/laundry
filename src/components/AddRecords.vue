@@ -21,7 +21,7 @@
                             <div class="py-2">
                                 <!-- record -->
                                 <perfect-scrollbar >
-                                    <receipt-accordion class="me-3" :isAdding="true"/>
+                                    <receipt-accordion class="me-3" :is-insertable="true" @retrieve-records="retrieveRecords"/>
                                 </perfect-scrollbar>
                             </div>
                         </div>
@@ -32,12 +32,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex px-4">
-                            <div>{{$t('home.add.service_fee')}}</div>
+                            <div class="del">{{$t('home.add.service_fee')}}</div>
                             <div class="ms-auto pe-4">$ 15</div>
                         </div>
                         <div class="d-flex px-4">
                             <div><b>{{$t('home.add.total')}}</b></div>
-                            <div class="ms-auto pe-4"><b>$ 2500</b></div>
+                            <div class="ms-auto pe-4"><b>$ {{total}}</b></div>
                         </div>
                     </div>
                 </div>
@@ -63,29 +63,20 @@
     
     var name ="";
     var phone= "";
-    const records = reactive([]) 
-    const serviceFee = computed({
-        get(){
-            return records.reduce((a, b) => {
-                return a + b;
-            })
-        },
-        set(n_serviceFee){
-            serviceFee = n_serviceFee
-        }
-    })
-    const total = computed({
-        get(){
-            return records.reduce((a, b) => {
-                return a + b;
-            }) + serviceFee;
-        },
+    const records = ref([]); 
+    const serviceFee = ref(15);
 
-        set(n_total){
-            total = n_total;
+    const total = computed(() => {
+        let sum = 0;
+        for(let i in records.value){
+            sum += records.value[i].price;
         }
+        return sum + serviceFee.value;   
     })
     
+    const retrieveRecords = (n_records) =>{
+        records.value = n_records
+    }
 
 
 
