@@ -5,6 +5,7 @@
             <perfect-scrollbar>
                 <slot />
             </perfect-scrollbar>
+            <slot name="footer"></slot>
         </div>
         <div class="main-window-bottom"></div>
     </div>
