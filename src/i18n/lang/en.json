@@ -32,6 +32,10 @@
             "T":"Add"
         },
         "data":{
+            "firstPage":"The first page",
+            "previousPage":"Previous page",
+            "nextPage":"Next page",
+            "lastPage":"The last page",
 
             "T":"Data"
         },

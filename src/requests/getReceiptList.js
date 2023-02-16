@@ -2,7 +2,7 @@ const config = {
     url: 'getReceiptList',
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
-    baseURL: "https://finalspaceapi.com/api/v0/character/?limit=2",
+    baseURL: "https://reqres.in/api/users?page=1",
 
     timeout: 10000,
 
