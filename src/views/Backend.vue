@@ -29,7 +29,7 @@
                 <IconPrevious width="32px" height="32px"/>
               </button>
               
-              <input type="number" placeholder="Page" v-model="n_page" @change="turnToPage(n_page)">
+              <input type="number" placeholder="Page" v-model="n_page" @change="turnToPage(n_page)" :min="1" :max="totalPage" >
               <span class="input-group-text"> / {{ totalPage }}</span>
               
               <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.nextPage')" @click="turnToPage(page + 1)">
@@ -61,7 +61,8 @@
 <script setup>
   import {ref, reactive, computed, onMounted} from "vue"
   import axios from "axios"
-  import config from "../requests/getReceiptList"
+  import { default as cust_config} from "../requests/getCustomerList.js"
+  import { default as rece_config}  from "../requests/getReceiptList.js"
   import TheWelcome from '../components/TheWelcome.vue'
   import IconCustomer from '../components/icons/IconCustomer.vue'
   import IconPrevious from '../components/icons/common/IconPrevious.vue'
@@ -76,20 +77,18 @@
 
   const page = ref(1)
   const n_page = page
-  const recordsNumPerPage = ref(2)
+  const recordsNumPerPage = ref(5)
   const totalPage = ref(0)
 
   function retrieveCustomerList(){
     title.value = "Customer List"
     page.value = 1
-    onMounted(() => {retrieveCustomerListCore()})
+    retrieveCustomerListCore()
   }
   const retrieveCustomerListCore = async () => {
-    
-    await axios(config).then(
+    await axios(cust_config).then(
       (res) => {
-        console.log(res)
-        records.value = res.data.data
+        records.value = res.data
         headers.value = Object.keys(records.value[0])
         totalPage.value = Math.ceil(records.value.length / recordsNumPerPage.value )
       }
@@ -101,15 +100,30 @@
 
   const retrieveReceiptList = () => {
     title.value = "Receipt List"
-    console.log(records)
-    console.log(headers)
+    page.value = 1
+    retrieveReceiptListCore()
+    
   }
+
+  const retrieveReceiptListCore = async () => {
+    await axios(rece_config).then(
+      (res) => {
+        records.value = res.data.data
+        headers.value = Object.keys(records.value[0])
+        totalPage.value = Math.ceil(records.value.length / recordsNumPerPage.value )
+      }
+    ).catch(
+      (err) => {console.log(err)}
+    )
+  }
+
+
   const retrieveItemList = () => {
     title.value = "Item List"
   }
 
   const turnToPage = (p) => {
-    page.value = p < 1 || p > totalPage ? page.value : p
+    page.value = p < 1 || p > totalPage.value ? page.value : p
   }
 
   const initialize = () => {
@@ -127,4 +141,10 @@
         margin-bottom: 10px;
     }
 
+    .btn:hover{
+        filter: brightness(1.1)
+    }
+    .btn:active{
+        filter: brightness(1)
+    }
 </style>

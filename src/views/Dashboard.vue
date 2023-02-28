@@ -45,11 +45,10 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="row my-2">
-                    <div class="col-6">
-                        <rect-window title="Profit"></rect-window>
-                    </div>
-                    <div class="col-6">
-                        <rect-window title="Number"></rect-window>
+                    <div class="col-12">
+                        <rect-window title="Searching Window">
+                            <QueryForm/>
+                        </rect-window>
                     </div>
                 </div>
                 <div class="row my-2">
@@ -105,6 +104,7 @@
 
 <script setup>
     import {defineComponent, reactive, ref} from "vue";
+    import QueryForm from "../components/SearchForm.vue";
     const receipts = [{
             receiptId: "12013",
             status: 'W', // E / P -> W -> F -> R

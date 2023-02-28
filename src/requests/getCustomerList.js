@@ -1,8 +1,8 @@
 const config = {
-    url: '/users?page=1',
+    url: '/users',
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
-    baseURL: "https://reqres.in/api",
+    baseURL: "https://api.github.com",
 
     timeout: 10000,
 

@@ -48,13 +48,22 @@
             "T":"Setting"
         },
         "search":{
-
+            
             "T" :"Search"
         },
         "T" : "Home"
     },
     "data":{
         "receipt":{
+            "status":{
+                "E":"Error",
+                "F":"Finished",
+                "P":"Pending",
+                "R":"Received",
+                "W":"Washing",
+                
+                "T":"Status"
+            },
             "service":{
                 "bleach":"Bleach",
                 "dryClean":"Dry Clean",
