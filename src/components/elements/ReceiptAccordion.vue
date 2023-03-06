@@ -66,7 +66,7 @@
       <div v-if="props.isInsertable" class="accordion-item new-item">
         <button class="d-flex accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="false"  data-toggle="tooltip" data-placement="top" @click="createRecord()">
             click here to create new item.
-          </button>
+        </button>
       </div>
     </div>
    

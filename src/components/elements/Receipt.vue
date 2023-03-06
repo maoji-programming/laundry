@@ -34,13 +34,11 @@
 
 <script setup>
     import {reactive, ref} from "vue";
-    import * as utility from "../../assets/js/utility.js";
+    import { isUndefined } from "../../assets/js/utility.js";
     
     defineProps(['pendingItem'])
 
-    const isUndefined = function(obj){
-        return utility.isUndefined(obj)
-    }
+    
     
 </script>
 

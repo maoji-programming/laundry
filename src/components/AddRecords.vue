@@ -60,6 +60,7 @@
 
 <script setup>
     import {computed, onMounted, reactive, ref} from "vue";
+    import { amountRoundOff } from "../assets/js/utility";
     
     var name ="";
     var phone= "";
@@ -71,7 +72,7 @@
         for(let i in records.value){
             sum += records.value[i].price;
         }
-        return sum + serviceFee.value;   
+        return amountRoundOff(sum + serviceFee.value);   
     })
     
     const retrieveRecords = (n_records) =>{

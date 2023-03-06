@@ -21,22 +21,22 @@
             <template #footer>
             <div class="d-flex justify-content-center">
               
-              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.firstPage')" @click="turnToPage(1)">
+              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.first_page')" @click="turnToPage(1)">
                 <IconFirst width="32px" height="32px"/>
               </button>
 
-              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.previousPage')" @click="turnToPage(page - 1)">
+              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.previous_page')" @click="turnToPage(page - 1)">
                 <IconPrevious width="32px" height="32px"/>
               </button>
               
               <input type="number" placeholder="Page" v-model="n_page" @change="turnToPage(n_page)" :min="1" :max="totalPage" >
               <span class="input-group-text"> / {{ totalPage }}</span>
               
-              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.nextPage')" @click="turnToPage(page + 1)">
+              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.next_page')" @click="turnToPage(page + 1)">
                 <IconNext width="32px" height="32px"/>
               </button>
 
-              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.lastPage')" @click="turnToPage(totalPage)">
+              <button type="button" class="btn btn-primary btn-support rounded-circle m-2 p-2" data-toggle="tooltip" data-placement="bottom" :title="$t('home.data.last_page')" @click="turnToPage(totalPage)">
                 <IconLast width="32px" height="32px"/>
               </button>
                 

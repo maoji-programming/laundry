@@ -32,10 +32,10 @@
             "T":"Add"
         },
         "data":{
-            "firstPage":"The first page",
-            "previousPage":"Previous page",
-            "nextPage":"Next page",
-            "lastPage":"The last page",
+            "first_page":"The first page",
+            "previous_page":"Previous page",
+            "next_page":"Next page",
+            "last_page":"The last page",
 
             "T":"Data"
         },
@@ -48,7 +48,14 @@
             "T":"Setting"
         },
         "search":{
-            
+            "number" : "Number",
+            "customer_phone":"Customer Phone",
+            "status" : "Status",
+            "service": "Service",
+            "start_time":"Start Time",
+            "from" : "From",
+            "to" : "To  ",
+            "include" : "Include",
             "T" :"Search"
         },
         "T" : "Home"

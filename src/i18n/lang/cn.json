@@ -33,10 +33,10 @@
             "T":"創建交易"
         },
         "data":{
-            "firstPage":"第一頁",
-            "previousPage":"上一頁",
-            "nextPage":"下一頁",
-            "lastPage":"最後一頁",
+            "first_page":"第一頁",
+            "previous_page":"上一頁",
+            "next_page":"下一頁",
+            "last_page":"最後一頁",
             
             "T":"後台數據"
         },
@@ -48,7 +48,14 @@
             "T":"系統設定"
         },
         "search":{
-
+            "number" : "發單號碼",
+            "customer_phone":"客戶電話",
+            "status" : "狀態",
+            "service": "服務",
+            "start_time":"發單時間",
+            "from" : "由",
+            "to" : "至",
+            "include" : "包括",
             "T" :"交易清單"
         },
         "T" : "主頁"

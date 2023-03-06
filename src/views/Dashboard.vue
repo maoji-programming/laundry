@@ -46,8 +46,8 @@
             <div class="col-12 col-lg-8">
                 <div class="row my-2">
                     <div class="col-12">
-                        <rect-window title="Searching Window">
-                            <QueryForm/>
+                        <rect-window :title="$t('home.search.T')">
+                            <QueryForm @query="sendQuery" />
                         </rect-window>
                     </div>
                 </div>
@@ -132,6 +132,10 @@
             orderTime: '2022-10-02 22:33:21'
         }
     ]
+
+    const sendQuery = (q) =>{
+        
+    }
     
 
 </script>
